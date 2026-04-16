@@ -1,0 +1,15 @@
+{
+  "name": "vibe-journal",
+  "version": "1.0.0",
+  "description": "A topological documentation layer for vibe-coded projects.",
+  "main": "index.js",
+  "bin": {
+    "vibe-journal": "bin/vibe-journal.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["documentation", "observability", "vibe-coding"],
+  "author": "",
+  "license": "MIT"
+}
