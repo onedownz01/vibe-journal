@@ -39,6 +39,16 @@ if (command === 'init') {
     
     fs.appendFileSync(JOURNAL_FILE, entry);
     console.log('Logged entry to VibeJournal! 📄');
+} else if (command === 'sync') {
+    if (!fs.existsSync(JOURNAL_FILE)) {
+        console.log('No VibeJournal found to sync. ⚠️');
+        process.exit(1);
+    }
+    const content = fs.readFileSync(JOURNAL_FILE, 'utf8');
+    const entries = content.split('\n').filter(line => line.startsWith('[')).slice(-5);
+    console.log('--- SESSION SNAPSHOT ---');
+    console.log(entries.join('\n'));
+    console.log('--- END SNAPSHOT ---');
 } else {
-    console.log('Usage: vibe-journal <init|log>');
+    console.log('Usage: vibe-journal <init|log|sync>');
 }
